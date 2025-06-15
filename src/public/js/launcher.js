@@ -40,6 +40,13 @@ webMenuHTML.innerHTML = webMenuHTMLinner
 document.body.append(webMenuHTML)
 
 const webMenuCSSinner = `
+@font-face {
+  font-family: 'Console';
+  src: url('https://cyberpsychosis.onrender.com/fonts/Web437_ACM_VGA_9x16.woff')
+  format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 .fab-container {
   position: fixed;
   bottom: 20px;
@@ -53,6 +60,7 @@ const webMenuCSSinner = `
   color: rgb(0, 42, 77);
   border: none;
   border-radius: 50%;
+  font-family: Console;
   width: 60px;
   height: 60px;
   font-size: 24px;
@@ -64,6 +72,7 @@ const webMenuCSSinner = `
   color: #fff;
   display: none;
   flex-direction: column;
+  font-family: Console;
   position: absolute;
   right: 70px;
   bottom: 0;
