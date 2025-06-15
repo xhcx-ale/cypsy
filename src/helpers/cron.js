@@ -1,7 +1,7 @@
 import cron from 'cron'
 import https from 'https'
 
-const url = 'https://instools.onrender.com'
+const url = 'https://cyberpsychosis.onrender.com'
 const job = new cron.CronJob('*/14 * * * *', function() {
   console.log('Reiniciando...')
   https
