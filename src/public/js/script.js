@@ -8,7 +8,7 @@ window.addEventListener("scroll", function () {
   }
 })
 
-const code = `javascript:(function(){var s=document.createElement('script');s.src='${document.domain}js/launcher.js';document.body.append(s);s.onload=function(){mainAct();}})();`
+const code = `javascript:(function(){var s=document.createElement('script');s.src='https://${document.domain}/js/launcher.js';document.body.append(s);s.onload=function(){mainAct();}})();`
 
 $('code').text(code)
 
