@@ -40,7 +40,7 @@ class Server {
     this.dbCnn();
     this.midlewares();
     this.routes();
-    //this.job.start()
+    this.job.start()
   }
 
   async dbCnn() {
