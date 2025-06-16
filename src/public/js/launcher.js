@@ -27,7 +27,7 @@ const webMenuHTMLinner = `
       <input id="drk" type="text" placeholder="Dork">
       <a id="op5" style="background: #333; border-bottom: 1px solid #ddd; 
         border-left: 1px solid #ddd;
-      color: #fff;display: inline-block; width: 30%;"><b>Dorkear</b></a>
+      color: #fff;display: inline-block; width: 30% !important;"><b>Buscar</b></a>
       </div>
       <a id="op6"><b>XSS Scan</b></a>
       <a id="op7"><b>Fuerza envío</b></a>
@@ -60,10 +60,10 @@ const webMenuCSSinner = `
   color: rgb(0, 42, 77);
   border: none;
   border-radius: 50%;
-  font-family: Console;
+  font-family: Console !important;
   width: 60px;
   height: 60px;
-  font-size: 24px;
+  font-size: 24px !important;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
@@ -83,7 +83,7 @@ const webMenuCSSinner = `
   //background-color: rgba(98, 0, 238, 0.3);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  font-size: 10px;
+  font-size: 10px !important;
   height: 200px;
   overflow: hidden;
   overflow-y: auto;
@@ -121,7 +121,7 @@ const webMenuCSSinner = `
    color: #4AE9FE;
    outline: none;
    padding: 0 0 0 5px;
-   width: 70%;
+   width: 70% !important;
 }
 
 .fab-menu input:hover {
@@ -297,7 +297,7 @@ fetch("https://ipapi.co/json")
     })
     .catch(error => console.error('Error:', error))
 
-fetch('https://instools.onrender.com/dorks')
+fetch('https://cyberpsychosis.onrender.com/dorks')
   .then(response => response.json())
   .then(data => {
     const dSel = document.querySelector('#dSel')
