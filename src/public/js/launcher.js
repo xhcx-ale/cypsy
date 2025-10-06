@@ -11,10 +11,10 @@ const webMenuHTMLinner = `
     <button class="fabBtn"><b><></b></button>
     <div class="fab-menu" id="fabWMenu" style="text-align: center;">
     <p style="color: #fff; font-size: 7px; border-bottom: 1px solid #333; padding: 5px 0;"><b>VPN:</b> <b id="vSt" style= "color: #f00;">Inactivo</b></p>
-      <a id="op1"><b>'OR 1=1 all inp</b></a>
-      <a id="op2"><b>Force submit</b></a>
-      <a id="op3"><b>chk id ' vuln</b></a>
-      <a id="op4"><b>Forzar inpts a txt</b></a>
+      <a id="op1"><b>Llenar inputs con 'OR 1=1 (sql)</b></a>
+      <a id="op2"><b>Forzar envio de formulario</b></a>
+      <a id="op3"><b>Insertar ' en URL (sql)</b></a>
+      <a id="op4"><b>Forzar inputs a texto</b></a>
             <select id="dSel" style="background: none;
   border: none;
   border-bottom: 1px solid #ddd;
@@ -24,14 +24,14 @@ const webMenuHTMLinner = `
       <option>Dorks Esp. Latam</option>
       </select>
       <div style="display: flex;">
-      <input id="drk" type="text" placeholder="Dork">
+      <textarea id="drk" type="text" placeholder="Dork"></textarea>
       <a id="op5" style="background: #333; border-bottom: 1px solid #ddd; 
         border-left: 1px solid #ddd;
       color: #fff;display: inline-block; width: 30% !important;"><b>Buscar</b></a>
       </div>
-      <a id="op6"><b>XSS Scan</b></a>
-      <a id="op7"><b>Fuerza envío</b></a>
-      <a id="op8"><b>CMS Detector</b></a>
+      <a id="op6"><b>Llenar inputs con payload XSS</b></a>
+      <!--<a id="op7"><b>Fuerza envío</b></a>-->
+      <a id="op8"><b>Detectar CMS</b></a>
       <a id="op9"><b>Detectar WAF</b></a>
     </div>
 `
@@ -114,7 +114,7 @@ const webMenuCSSinner = `
   display: flex;
 }
 
-.fab-menu input {
+.fab-menu textarea {
    background: none;
    border: none;
    border-bottom: 1px solid #ddd;
@@ -206,16 +206,34 @@ document.querySelector('.fabBtn').addEventListener('click', () => {
   toggleMenu()
 })
 
-document.querySelector('#op1').addEventListener('click', () => document.querySelectorAll('input').forEach((inp) => inp.value = "'OR 1=1 -- -"))
-document.querySelector('#op2').addEventListener('click', () => document.querySelector('form').submit())
+const inptVal = () => {
+  const inpts = document.querySelectorAll('input')
+  if(!inpts[0]) {
+    alert('No se encontraron inputs!')
+  } else {
+    return inpts
+  }
+}
+
+document.querySelector('#op1').addEventListener('click', () => {
+  const inpts = inptVal()
+  
+  if(inpts) {
+    inpts.forEach((inp) => inp.value = "'OR 1=1 -- -")
+  }
+})
+
+document.querySelector('#op2').addEventListener('click', () => document.querySelector('form')?submit():alert('No se encontró ningun formulario!'))
 
 document.querySelector('#op3').addEventListener('click', () => location.href = location.href + "'")
 
 document.querySelector('#op4').addEventListener('click', () => {
-  document.querySelectorAll('input').forEach((inp) => inp.addEventListener('input', () => {
+  const inpts = inptVal()
+  if(inpts) {
+  inpts.forEach((inp) => inp.addEventListener('input', () => {
     inp.setAttribute('type', 'text')
   })
-)
+)}
 })
 
 document.querySelector('#op5').addEventListener('click', () => {
@@ -224,9 +242,13 @@ document.querySelector('#op5').addEventListener('click', () => {
 })
 
 document.querySelector('#op6').addEventListener('click', () => {
-  document.querySelectorAll('input, textarea').forEach((el) => {
+  const inpts = inptVal()
+  
+  if (inpts) {
+  inpts.forEach((el) => {
     el.value = `<script>alert(1)</script>`
   })
+  }
 })
 
 document.querySelector('#op7').addEventListener('click', () => {

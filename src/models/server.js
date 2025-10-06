@@ -32,8 +32,8 @@ class Server {
     this.paths = {
       auth: '/auth',
       users: '/admin/users',
-      dorks: '/dorks',
-      role: '/rol',
+      dorks: '/api/dorks',
+      role: '/admin/rol',
      // venta: '/venta',
     };
 

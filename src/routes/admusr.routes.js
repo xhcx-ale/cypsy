@@ -19,7 +19,10 @@ import { roleExs, emailExs, usrIdExs } from "../helpers/index.js";
 
 const router = Router();
 
-router.get("/", usrGet);
+router.get("/", [
+    jwtVal,
+    admRole,
+  ], usrGet);
 
 router.post(
   "/",
@@ -37,7 +40,7 @@ router.post(
   usrPost
 );
 
-router.put(
+/*router.put(
   "/:id",
   [
     check("id", "No es un ID válido").isMongoId(),
@@ -46,15 +49,15 @@ router.put(
     fieldVal,
   ],
   usrPut
-);
+);*/
 
-router.patch("/", usrPatch);
+//router.patch("/", usrPatch);
 
 router.delete(
   "/:id",
   [
     jwtVal,
-    //admRole,
+    admRole,
     hvaRole("ADMIN_ROLE", "VENTAS_ROLE", "ELPEPE_ROLE"),
     check("id", "No es un ID válido").isMongoId(),
     check("id").custom(usrIdExs),

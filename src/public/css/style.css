@@ -4,21 +4,27 @@
 
 @font-face {
   font-family: "Cybp";
-  src: url("../fonts/Cyberpunk.ttf") format("truetype");
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Cyberpunk.ttf") format("truetype");
 }
 @font-face {
   font-family: "DsTerminal";
-  src: url("../fonts/DS-TERM.TTF") format("truetype");
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/DS-TERM.TTF") format("truetype");
 }
 @font-face {
   font-family: "Console";
-  src: url("../fonts/Web437_ACM_VGA_9x16.woff") format("woff");
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Web437_ACM_VGA_9x16.woff") format("woff");
+}
+@font-face {
+  font-family: "evilSound";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/EvilSound-nRM8M.ttf") format("truetype");
 }
 body {
   color: #fff;
@@ -153,8 +159,31 @@ body .main .Script {
   overflow-y: auto;
   width: 100%;
 }
+body .main .Script .instSs {
+  box-shadow: 0 0 1px 0 rgba(39, 189, 187, 0.5), 0 0 4px 1px rgba(39, 189, 187, 0.5), 0 0 16px 4px rgba(39, 189, 187, 0.5);
+  margin: 10px 0 10px 0;
+  width: 100%;
+}
+body .main .cptbBrws h5 {
+  color: #27BDBB;
+  text-align: center;
+}
+body .main .cptbBrws ul {
+  margin: 0 auto;
+}
+body .main .cptbBrws ul li img {
+  width: 40px;
+}
+body .playground {
+  background: yellow;
+}
 body .fot {
   background: #000;
+}
+body .fot .byName {
+  color: #00FF2D;
+  font-family: evilSound;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 550px) {

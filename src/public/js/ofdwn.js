@@ -66,6 +66,9 @@ const webMenuCSSinner = `
   display: flex;
   width: 100%;
 }
+.prVw {
+  width: 40%;
+}
 `
 webMenuCSS.innerHTML = webMenuCSSinner
 document.body.append(webMenuCSS)
@@ -126,7 +129,7 @@ document.addEventListener('touchend', () => {
   document.body.style.overflow = '';
 });
 
-document.querySelector('.fabBtn').addEventListener('click', () => {
+/*document.querySelector('.fabBtn').addEventListener('click', () => {
   const post = document.querySelectorAll('.pswp__img img')
   if (!post.length) {
     return alert('No hay posts!')
@@ -141,7 +144,7 @@ document.querySelector('.fabBtn').addEventListener('click', () => {
       const link = document.createElement('a')
       link.setAttribute('download', '')
       link.href = img.src
-      link.innerHTML = 'Descargar'
+      link.textContent = 'Descargar'
       const prVw = document.createElement('iframe')
       prVw.classList.add('prVw')
       prVw.src = img.src
@@ -150,6 +153,35 @@ document.querySelector('.fabBtn').addEventListener('click', () => {
       elm.appendChild(link)
     })
     //location.href = post[1].src
+  }
+})*/
+document.querySelector('.fabBtn').addEventListener('click', () => {
+  const post = document.querySelectorAll('.pswp__img img')
+  if (!post.length) {
+    return alert('No hay posts!')
+  } else {
+    toggleMenu()
+    document.querySelector('#vSt').innerHTML = post.length
+    post.forEach((img, i) => {
+      const elm = document.createElement('div')
+      elm.classList.add('mdEl')
+      const menu = document.querySelector('.fab-menu')
+      menu.appendChild(elm)
+
+      const prVw = document.createElement('img')
+      prVw.classList.add('prVw')
+      prVw.src = img.src
+      prVw.style.width = '50px'
+      prVw.style.height = 'auto'
+
+      const link = document.createElement('a')
+      link.setAttribute('download', `imagen_${i + 1}.jpg`)
+      link.href = img.src
+      link.textContent = 'Descargar'
+
+      elm.appendChild(prVw)
+      elm.appendChild(link)
+    })
   }
 })
 }

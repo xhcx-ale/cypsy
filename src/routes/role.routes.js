@@ -4,7 +4,11 @@ import { admRole, hvaRole, jwtVal } from "../middlewares/index.js";
 
 const router = Router()
 
-router.get('/', getRoles)
+router.get('/', [
+  jwtVal,
+  admRole,
+  ],
+getRoles)
 router.post('/', [
   jwtVal,
   admRole,
