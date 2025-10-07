@@ -319,7 +319,7 @@ fetch("https://ipapi.co/json")
     })
     .catch(error => console.error('Error:', error))
 
-fetch('https://cyberpsychosis.onrender.com/dorks')
+fetch('https://cyberpsychosis.onrender.com/api/dorks')
   .then(response => response.json())
   .then(data => {
     const dSel = document.querySelector('#dSel')
