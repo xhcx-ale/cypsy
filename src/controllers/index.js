@@ -7,6 +7,7 @@ import {
   deleteDork,
 } from './dork.controller.js'
 import { createRole, getRoles } from './role.controller.js'
+import { sender } from './sender.controller.js'
 
 export {
   login,
@@ -21,4 +22,5 @@ export {
   deleteDork,
   createRole,
   getRoles,
+  sender,
 }

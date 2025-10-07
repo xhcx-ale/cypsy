@@ -3,6 +3,7 @@ import {
   dorkRoutes,
   roleRoutes,
   usrAdmRoutes,
+  senderRoutes,
 } from '../routes/index.js'
 import express from "express";
 import cors from "cors";
@@ -34,6 +35,7 @@ class Server {
       users: '/admin/users',
       dorks: '/api/dorks',
       role: '/admin/rol',
+      sender: '/sender',
      // venta: '/venta',
     };
 
@@ -67,6 +69,7 @@ class Server {
     this.app.use(this.paths.users, usrAdmRoutes),
     this.app.use(this.paths.role, roleRoutes)
    // this.app.use(this.paths.venta, ventaRoutes),
+    this.app.use(this.paths.sender, senderRoutes)
     this.app.get('/', (req, res) => {
     res.render('index')
 })

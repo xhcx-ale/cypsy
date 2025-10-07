@@ -17,30 +17,5 @@
 
       {{>footer}}
 
-<script>
-  const settings = (theme) => {
-  $('body').attr('data-bs-theme', theme);
-  const isLight = theme === 'light';
-  $('.ico').toggleClass('bi-sun-fill', !isLight).toggleClass('bi-moon-fill', isLight);
-  $('.thBtn').toggleClass('dark', isLight).toggleClass('light', !isLight);
-}
-
-const setTheme = () => {
-  const currentTheme = $('.ico').hasClass('bi-moon-fill') ? 'light' : 'dark';
-  settings(currentTheme);
-  localStorage.setItem('theme', currentTheme);
-}
-
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-  settings(savedTheme);
-}
-
-$('.thBtn').click(() => {
-  $('.ico').toggleClass('bi-sun-fill bi-moon-fill');
-  setTheme();
-});
-</script>
-
   </body>
 </html>
