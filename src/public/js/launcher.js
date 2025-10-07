@@ -251,7 +251,7 @@ document.querySelector('#op6').addEventListener('click', () => {
   }
 })
 
-document.querySelector('#op7').addEventListener('click', () => {
+/*document.querySelector('#op7').addEventListener('click', () => {
   const form = document.querySelector('form')
   if (!form) return alert('No se encontró ningún formulario.')
   
@@ -264,7 +264,7 @@ document.querySelector('#op7').addEventListener('click', () => {
     counter++
     if (counter > 4) clearInterval(interval)
   }, 1500)
-})
+})*/
 
 document.querySelector('#op8').addEventListener('click', () => {
   const checks = [
