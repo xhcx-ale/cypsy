@@ -39,22 +39,22 @@ class Server {
      // venta: '/venta',
     };
 
-    this.dbCnn();
-    this.midlewares();
-    this.routes();
+    this.dbCnn()
+    this.midlewares()
+    this.routes()
     this.job.start()
   }
 
   async dbCnn() {
-    await dbConnection();
+    await dbConnection()
   }
 
   midlewares() {
-    this.app.use(cors());
-    this.app.use(express.static(join(this.__dirname, "/../public")));
-    this.app.use(morgan("dev"));
-    this.app.use(express.urlencoded({ extended: false }));
-    this.app.use(express.json());
+    this.app.use(cors())
+    this.app.use(express.static(join(this.__dirname, "/../public")))
+    this.app.use(morgan("dev"))
+    this.app.use(express.urlencoded({ extended: false }))
+    this.app.use(express.json())
     //this.app.use(cookieParser())
     /*this.app.use(fileUpload({
       useTempFiles : true,
@@ -74,14 +74,14 @@ class Server {
     res.render('index')
 })
     this.app.get("{*any}", (req, res) => {
-      res.status(404).send("<h1>No esté mamando!!</h1>");
+      res.status(404).render('error', { errCode: 404, err: 'NO ENCONTRADO' })
       //res.status(404).render('errors/error.hbs', { err: 'No encontrado', code: 404 })
     });
   }
 
   listen() {
     this.app.listen(this.app.get("port"), () => {
-      console.log("Running... | PORT:", this.app.get("port"));
+      console.log("Running... | PORT:", this.app.get("port"))
     });
   }
 }

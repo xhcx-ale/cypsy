@@ -175,7 +175,22 @@ body .main .cptbBrws ul li img {
   width: 40px;
 }
 body .playground {
-  background: yellow;
+  background: url("../img/pgBg.png") no-repeat center center;
+  background-size: 100% 100%;
+}
+body .notFound {
+  background: url("../img/errBg.jpeg") no-repeat center center;
+  background-size: 100% 100%;
+}
+body .notFound .notFoundCard {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 50px 20px;
+  width: 100%;
+}
+body .notFound .notFoundCard p {
+  color: #FF003C;
+  font-family: DsTerminal;
+  font-weight: normal !important;
 }
 body .fot {
   background: #000;
