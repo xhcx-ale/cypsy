@@ -175,11 +175,11 @@ body .main .cptbBrws ul li img {
   width: 40px;
 }
 body .playground {
-  background: url("../img/pgBg.png") no-repeat center center;
+  background: url("/../img/pgBg.png") no-repeat center center;
   background-size: 100% 100%;
 }
 body .notFound {
-  background: url("../img/errBg.jpeg") no-repeat center center;
+  background: url("/../img/errBg.jpeg") no-repeat center center;
   background-size: 100% 100%;
 }
 body .notFound .notFoundCard {

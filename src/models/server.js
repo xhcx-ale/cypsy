@@ -75,7 +75,6 @@ class Server {
 })
     this.app.get("{*any}", (req, res) => {
       res.status(404).render('error', { errCode: 404, err: 'NO ENCONTRADO' })
-      //res.status(404).render('errors/error.hbs', { err: 'No encontrado', code: 404 })
     });
   }
 
